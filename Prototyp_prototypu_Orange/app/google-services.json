@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "534779591637",
+    "project_id": "orangehackathon-9d5d7",
+    "storage_bucket": "orangehackathon-9d5d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534779591637:android:97f4101dc681860bd9db5c",
+        "android_client_info": {
+          "package_name": "com.example.prototyp_prototypu_orange"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDjLcPSZToh1thn738SQZJIFQbGLZ_h-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

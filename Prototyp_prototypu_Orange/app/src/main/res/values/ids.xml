@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="phoneNumberEditText" type="id"/>
+    <item name="subscribeButton" type="id" />
+    <item name="titleTextView" type="id" />
+</resources>
