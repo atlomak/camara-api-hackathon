@@ -1,0 +1,13 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "active_subsribable_objects",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "expirationTime", "order": "ASCENDING" },
+        { "fieldPath": "remainingCalls", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
