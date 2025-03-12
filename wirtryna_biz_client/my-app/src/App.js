@@ -1,11 +1,12 @@
 import React from "react";
 import AddEntry from "./AddEntry";
+import "./App.css";
 
 function App() {
-  console.log("App component loaded"); // Sprawdzenie, czy komponent się ładuje
+  console.log("App component loaded");
   return (
-    <div>
-      <h1>Firestore Entry App</h1>
+    <div className="App">
+      <h1>🛠 Terminal Administracyjny</h1>
       <AddEntry />
     </div>
   );

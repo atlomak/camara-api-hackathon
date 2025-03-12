@@ -1,38 +1,109 @@
-.App {
+/* 🌟 Globalne style */
+body {
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  background: linear-gradient(to right, #292f36, #4ecdc4);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 🌟 Terminalowy panel */
+.terminal {
+  width: 90%;
+  max-width: 800px;
+  background: linear-gradient(to bottom, #292f36, #946e83);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(78, 205, 196, 0.5);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 🌟 Nagłówek */
+.terminal-header {
+  background: #4ecdc4;
+  padding: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #292f36;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 🌟 Formularz */
+.terminal-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 12px;
+  padding: 20px;
+}
+
+/* 🌟 Inputy */
+.terminal-input {
+  background: #1c1f26; /* Stały ciemny kolor tła */
+  border: 2px solid #4ecdc4;
+  color: #ffffff; /* Biały tekst */
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.terminal-input:focus {
+  border-color: #ffffff;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* 🌟 Przycisk */
+.terminal-button {
+  background: #4ecdc4; /* Zamiast mocnego gradientu - jednolity kolor */
   color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.terminal-button:hover {
+  background: #3cb5af; /* Subtelna zmiana koloru po najechaniu */
+  box-shadow: 0px 0px 8px rgba(78, 205, 196, 0.8);
 }
 
-@keyframes App-logo-spin {
+/* 🌟 Opis strony */
+.terminal-description {
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+.terminal-input::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Jasnoszary, lepiej widoczny */
+  font-style: italic;
+}
+/* 🌟 Animacja subtelnego pojawiania się */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.terminal, .terminal-form, .terminal-header {
+  animation: fadeIn 0.6s ease-in-out;
 }
