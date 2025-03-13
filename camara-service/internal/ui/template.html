@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Submission | FutureConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at top, #0a0f1e, #020617);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center text-white">
+    <div class="w-full max-w-lg p-8 bg-white/5 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md">
+        <h1 class="text-3xl font-semibold text-center text-blue-400 tracking-wide">FutureConnect</h1>
+        <p class="text-center text-gray-400 text-sm mb-6">The future of local ads starts here</p>
+        
+        <form id="adForm" method="POST" class="space-y-5">
+            <div class="relative">
+                <input type="text" name="longitude" placeholder="Longitude"
+                    class="w-full p-3 bg-gray-900/40 rounded-lg border border-gray-700 placeholder-gray-500 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+            </div>
+            <div class="relative">
+                <input type="text" name="latitude" placeholder="Latitude"
+                    class="w-full p-3 bg-gray-900/40 rounded-lg border border-gray-700 placeholder-gray-500 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+            </div>
+            <div class="relative">
+                <input type="text" name="shopname" placeholder="Shop Name"
+                    class="w-full p-3 bg-gray-900/40 rounded-lg border border-gray-700 placeholder-gray-500 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+            </div>
+            <div class="relative">
+                <textarea name="adtext" placeholder="Ad Text" rows="4"
+                    class="w-full p-3 bg-gray-900/40 rounded-lg border border-gray-700 placeholder-gray-500 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required></textarea>
+            </div>
+            <button type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 transition text-white font-semibold py-3 rounded-lg shadow-md">
+                Submit Ad
+            </button>
+        </form>
+
+        <div id="successMessage" class="hidden mt-6 p-5 bg-gray-900/30 border border-blue-500 rounded-lg text-center shadow-md">
+            <h2 class="text-lg font-semibold text-blue-400">Submission Successful</h2>
+            <p class="text-gray-400 text-sm">Your ad is now live in the FutureConnect network.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("adForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("successMessage").classList.remove("hidden");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
