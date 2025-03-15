@@ -17,9 +17,13 @@ const tokenReqBody string = "grant_type=client_credentials"
 
 type TokenCache struct {
 	config      config.Config
-	AccessToken string
-	ExpiresAt   time.Time
+	accessToken string
+	expiresAt   time.Time
 	rwMutex     sync.RWMutex
+}
+
+func NewTokenCache(config config.Config, accessToken string, expiresAt time.Time) *TokenCache {
+	return &TokenCache{config: config, accessToken: accessToken, expiresAt: expiresAt, rwMutex: sync.RWMutex{}}
 }
 
 // GetToken retrieves the token if it's still valid
@@ -28,14 +32,14 @@ func (tc *TokenCache) GetToken() (string, error) {
 	defer tc.rwMutex.RUnlock()
 
 	// Check if the token is expired
-	if time.Now().After(tc.ExpiresAt) || len(tc.AccessToken) == 0 {
+	if time.Now().After(tc.expiresAt) || len(tc.accessToken) == 0 {
 		err := tc.updateToken()
 		if err != nil {
 			return "", err
 		}
-		return tc.AccessToken, nil
+		return tc.accessToken, nil
 	}
-	return tc.AccessToken, nil
+	return tc.accessToken, nil
 }
 
 // UpdateToken updates the token in memory if expired
@@ -48,8 +52,8 @@ func (tc *TokenCache) updateToken() error {
 		return err
 	}
 
-	tc.AccessToken = accessToken
-	tc.ExpiresAt = time.Now().Add(time.Duration(expiresIn) * time.Second)
+	tc.accessToken = accessToken
+	tc.expiresAt = time.Now().Add(time.Duration(expiresIn) * time.Second)
 
 	return nil
 }
