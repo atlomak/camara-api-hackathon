@@ -3,6 +3,7 @@ package camara
 import (
 	"catoverheater/camara-service/internal/config"
 	"log"
+	"sync"
 	"testing"
 )
 
@@ -11,22 +12,26 @@ const testLatitude = 48.80
 const testLongitude = 2.29
 
 var cfg *config.Config
+var tokenCache TokenCache
 
 func init() {
 	cfg = config.NewConfig("../../.env")
+	tokenCache = TokenCache{config: *cfg, rwMutex: sync.RWMutex{}}
 }
 
 func TestGetOauthOrangeToken(t *testing.T) {
 
-	token, err := FetchOauthToken(cfg.Token)
+	token, expiresIn, err := fetchOauthToken(cfg.Token)
 	if err != nil {
 		t.Fatal(err)
 	}
 	log.Println(token)
+	log.Println(expiresIn)
 }
 
 func TestCreateSubscription(t *testing.T) {
-	token, err := FetchOauthToken(cfg.Token)
+	token, err := tokenCache.GetToken()
+
 	if err != nil {
 		t.Fatal(err)
 	}
